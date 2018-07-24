@@ -16,10 +16,11 @@ public class Content{
         switch(type){
             case "info":
                 comment += "/*\n";
+                comment += "\t!!!DON'T FORGET TO UPDATE THESE INFORMATION!!!\n";
                 comment += "\tFilename: index.html\n";
                 comment += "\tAuthor: Janjan Medina\n";
                 comment += "\tAuthor URI: https://github.com/medinajuanantonio95\n";
-                comment += "\tProject: MyProject\n";
+                comment += "\tProject: " + currentFolder() + "\n";
                 comment += "*/\n\n";
                 break;
             case "general":
@@ -63,6 +64,15 @@ public class Content{
 
     public String addImport(String filename){
         return "<link rel=\"stylesheet\" href=\"" + filename + "\" />";
+    }
+
+    private static String currentFolder(){
+        String dir = System.getProperty("user.dir");
+        dir = dir.replaceAll("[\\\\s]", "\\\\");
+
+        String[] split = dir.split("\\\\\\\\");
+
+        return split[split.length-1];
     }
     
 }

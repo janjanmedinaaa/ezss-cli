@@ -13,7 +13,16 @@ public class EzSS{
                 case "create":
                     create.create(args);
                     break;
+                case "generate":
+                    create.create(args);
+                    break;
+                case "gen":
+                    create.create(args);
+                    break;
                 case "compress":
+                    compress.compress(args);
+                    break;
+                case "comp":
                     compress.compress(args);
                     break;
                 default:
@@ -42,8 +51,11 @@ public class EzSS{
         output += "    ezss.jar create one.html             > Create one.css\n";
         output += "    ezss.jar create one.html two.html    > Create multiple CSS files\n";
         output += "    ezss.jar create one.html custom.css  > Create CSS file with custom name\n";
+        output += "    ezss.jar generate one.html           > Generate also works like create\n";
+        output += "    ezss.jar gen one.html                > Shortcuts also work\n";
         output += "    ezss.jar compress one.css            > Compress one.css\n";
         output += "    ezss.jar create all                  > Create CSS files for all HTML files in current directory\n";
+        output += "    ezss.jar comp all                    > Shortcuts also work\n";
 
         return output;
     }
@@ -57,8 +69,8 @@ public class EzSS{
 
         output += "Examples:\n";
         output += "    ezss.jar create one.html             > Create one.css\n";
-        output += "    ezss.jar create one.html two.html    > Create multiple CSS files\n";
-        output += "    ezss.jar create one.html custom.css  > Create CSS file with custom name\n";
+        output += "    ezss.jar create one.html two.php     > Create multiple CSS files\n";
+        output += "    ezss.jar gen one.html custom.css     > Create CSS file with custom name\n";
         output += "    ezss.jar compress one.css            > Compress one.css\n";
         output += "    ezss.jar create all                  > Create CSS files for all HTML files in current directory\n";
 

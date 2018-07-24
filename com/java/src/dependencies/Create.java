@@ -17,24 +17,24 @@ public class Create{
 
         switch(args.length){
             case 1:
-                System.out.println(instructions(null));
+                System.out.println(instructions(null, args[0]));
                 break;
             case 2:
                 if(args[1].equalsIgnoreCase("all")){
                     collectHTML();
                 }
-                else if(file.getFileType(args[1]).equalsIgnoreCase("html")){
+                else if(file.getFileType(args[1]).matches("(html|php|jsp)")){
                     singleCreate(args[1], null);
                 }
                 else {
-                    System.out.println(instructions(args[1]));
+                    System.out.println(instructions(args[1], null));
                 }
                 break;
             case 3:
                     if(file.getFileType(args[2]).equalsIgnoreCase("css")){
                         singleCreate(args[1], args[2]);
                     }
-                    else if(file.getFileType(args[2]).equalsIgnoreCase("html")){
+                    else if(file.getFileType(args[2]).matches("(html|php|jsp)")){
                         multipleCreate(arrayList);
                     } 
                 break;
@@ -45,8 +45,8 @@ public class Create{
         }
     }
 
-    private static String instructions(String param){
-        String output = (param == null) ? "Incomplete Create Command.\n\n" 
+    private static String instructions(String param, String command){
+        String output = (param == null) ? "Incomplete " + command + " Command.\n\n" 
                             : "Invalid HTML File. - " + param + "\n\n";
 
         output += "Command Usage:\n    create [...files]\n\n";
@@ -54,8 +54,10 @@ public class Create{
         output += "Examples:\n";
         output += "    create all                  > Create CSS files for all HTML files in current directory\n";
         output += "    create one.html             > Create one.css\n";
-        output += "    create one.html two.html    > Create multiple css files\n";
-        output += "    create one.html styles.css  > Create CSS file with custom name\n\n";
+        output += "    generate one.html           > Generate also works like create\n";
+        output += "    gen one.html                > Shortcuts also work\n";
+        output += "    create one.html two.php    > Create multiple css files\n";
+        output += "    create one.jsp styles.css  > Create CSS file with custom name\n";
 
         return output;
     }
@@ -65,7 +67,7 @@ public class Create{
         Create create = new Create();
 
         try{
-            Files.newDirectoryStream(Paths.get(""), "*.html")
+            Files.newDirectoryStream(Paths.get(""), "*.{html,php,jsp}")
                 .forEach(files::add);
 
             create.multipleCreate(files);
@@ -105,8 +107,8 @@ public class Create{
         }
 
         for (String newfile : newfiles) {
-            if(!newfile.equalsIgnoreCase("create") 
-                && file.getFileType(newfile).equalsIgnoreCase("html"))
+            if(!newfile.matches("(create|generate|gen)") 
+                && file.getFileType(newfile).matches("(html|php|jsp)"))
                     singleCreate(newfile, null);
         }
     }
@@ -122,7 +124,7 @@ public class Create{
 
         String compiled = assemble.compile(ids, classes);
 
-        if(file.getFileType(htmlfile).equalsIgnoreCase("html")){
+        if(file.getFileType(htmlfile).matches("(html|php|jsp)")){
             if (filename == null){
                 writeCSS(htmlfile, compiled, filename);
             }

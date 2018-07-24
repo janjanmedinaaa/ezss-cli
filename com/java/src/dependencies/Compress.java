@@ -15,7 +15,7 @@ public class Compress{
     public void compress(String[] args){
         switch(args.length){
             case 1:
-                System.out.println(instructions(null));
+                System.out.println(instructions(null, args[0]));
                 break;
             case 2:
                 if(args[1].equalsIgnoreCase("all")){
@@ -25,7 +25,7 @@ public class Compress{
                     singleCompress(args[1]);
                 }
                 else {
-                    System.out.println(instructions(args[1]));
+                    System.out.println(instructions(args[1], null));
                 }
                 break;
             default:
@@ -36,16 +36,17 @@ public class Compress{
         }
     }
 
-    private static String instructions(String param){
-        String output = (param == null) ? "Incomplete Compress Command.\n\n" 
+    private static String instructions(String param, String command){
+        String output = (param == null) ? "Incomplete " + command + " Command.\n\n" 
                             : "Invalid CSS File. - " + param + "\n\n";
 
         output += "Command Usage:\n    compress [...files]\n\n";
 
         output += "Examples:\n";
         output += "    compress all                  > Compress CSS files in current directory\n";
+        output += "    comp all                      > Shortcuts also work\n";
         output += "    compress one.css              > Compress one.css\n";
-        output += "    compress one.css two.css      > Compress multiple css files\n\n";
+        output += "    compress one.css two.css      > Compress multiple css files\n";
 
         return output;
     }
@@ -103,7 +104,7 @@ public class Compress{
         }
 
         for (String newfile : newfiles) {
-            if(!newfile.equalsIgnoreCase("compress") 
+            if(!newfile.matches("(compress|comp)") 
                 && file.getFileType(newfile).equalsIgnoreCase("css"))
                     singleCompress(newfile);
         }
