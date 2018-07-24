@@ -8,7 +8,7 @@ You first need to install Java Runtime Environment and Java Virtual Machine on y
 
 ## Installation
 1. Download the ZIP file or clone using `git clone https://github.com/medinajuanantonio95/ezss.git`
-2. Unzip the file and import `ezss.jar` to your Project Directory`
+2. Unzip the file and import `ezss.jar` to your Project Directory
 
 ## Usage
 
@@ -20,54 +20,19 @@ java -jar ezss.jar [command] [...files]
 
 ```
 /*
-    Filename: index.html
-    Author: Janjan Medina
-    Author URI: https://github.com/medinajuanantonio95
-    Project: MyProject
+	!!!DON'T FORGET TO UPDATE THESE INFORMATION!!!
+	Filename: index.html
+	Author: Janjan Medina
+	Author URI: https://github.com/medinajuanantonio95
+	Project: JAVA\EzSS
 */
 
 /***** General Styles *****/
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-/***** mainContainer *****/
-
-#mainContainer {
-
-}
-
-/***** Header Style *****/
-
-#header {
-
-}
-
-/***** Navigation Style *****/
-
-#nav {
-
-}
-
-/***** Footer Style *****/
-
-#footer {
-
-}
-
-.nav-class {
-
-}
-
-.content {
-
-}
-
-.footer-class {
-
+	margin: 0;
+	padding: 0;
+	width: 100%;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -97,6 +62,8 @@ CSS File Generation
 java -jar ezss.jar create index.html     //Single CSS file Generation 
 
 java -jar ezss.jar create one.html two.html three.html     //Multiple CSS file Generation 
+
+java -jar ezss.jar generate one.php     //Generate and Gen also works like Create
 ```
 
 All Command
@@ -116,6 +83,8 @@ CSS Compression
 java -jar ezss.jar compress styles.css     //Compress single CSS file
 
 java -jar ezss.jar compress one.css two.css three.css     //Compress multiple CSS files
+
+java -jar ezss.jar comp one.css     //Shortcuts also work
 ```
 
 All Command
