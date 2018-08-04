@@ -1,4 +1,4 @@
-# EzSS - CSS Tool
+# EzSS - CSS CLI Tool
 
 EzSS is a java-based CLI tool in creating and compressing CSS Files. EzSS allows auto-generation of CSS Files based on HTML Classes and Ids using CSS Best Practices. EzSS also allows CSS Compression. 
 
@@ -7,7 +7,7 @@ EzSS is a java-based CLI tool in creating and compressing CSS Files. EzSS allows
 You first need to install Java Runtime Environment and Java Virtual Machine on your device to run the JAR File.
 
 ## Installation
-1. Download the ZIP file or clone using `git clone https://github.com/medinajuanantonio95/ezss.git`
+1. Download the ZIP file or clone using `git clone https://github.com/medinajuanantonio95/ezss-cli.git`
 2. Unzip the file and import `ezss.jar` to your Project Directory
 
 ## Usage
