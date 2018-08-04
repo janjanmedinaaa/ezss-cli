@@ -17,11 +17,11 @@ public class FileAction{
                 br.close();
             }
             else{
-                System.out.println(filename + " not found.");
+                output = filename + " not found.";
             }
         }
         catch(Exception e){
-            System.out.println("Error in Reading File. - " + filename);
+            output = "Error in Reading File. - " + filename;
         }
 
         return output;

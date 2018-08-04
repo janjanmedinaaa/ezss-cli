@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import com.java.classes.dependencies.FileAction;
 import com.java.classes.dependencies.Assemble;
+import com.java.classes.dependencies.Content;
 
 public class Create{
     public void create(String[] args){
@@ -79,6 +80,23 @@ public class Create{
         return files;
     }
 
+    private static boolean writeFile(String filename, String compiled){
+        FileAction file = new FileAction();
+        Boolean success = false;
+        
+        try{
+            PrintWriter pw = new PrintWriter(new FileWriter(new File(filename)));
+            success = true;
+            pw.println(compiled);
+            pw.close();
+        }
+        catch(Exception e){
+            System.out.println("Error in Creating File.");
+        }
+
+        return success;
+    }
+
     private static boolean writeCSS(String htmlfile, String compiled, String filename){
         FileAction file = new FileAction();
 
@@ -140,6 +158,12 @@ public class Create{
         else {
             System.out.println("Invalid HTML File. - " + htmlfile);
         }
+    }
+    
+    private static void newFile(String filename){
+        Content content = new Content();
+        String filecontent = content.writeContent(filename);
         
+        writeFile(filename, filecontent);
     }
 }

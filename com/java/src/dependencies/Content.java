@@ -1,5 +1,6 @@
 package com.java.classes.dependencies;
 
+import com.java.classes.dependencies.FileAction;
 public class Content{
     public String CSSFunction(String name, String type){
         String classifier = (type == "id") ? "#" : ".";
@@ -64,6 +65,31 @@ public class Content{
 
     public String addImport(String filename){
         return "<link rel=\"stylesheet\" href=\"" + filename + "\" />";
+    }
+
+    public String writeContent(String filename){
+        FileAction file = new FileAction();
+
+        String filetype = file.getFileType(filename);
+        String content = "";
+
+        switch(filetype){
+            case "html":
+                content = "<html>\n\t<head>\n\t\t<title>MyProject</title>" + 
+                    "\n\t</head>\n\t<body>\n\n\n\t</body>\n</html>";
+                break;
+            case "css":
+                content = comments("info", null) + comments("general", null) + 
+                    bodyCSS() + mediaQueries();
+                break;
+            case "php":
+                content = "<html>\n\t<head>\n\t\t<title>MyProject</title>" + 
+                "\n\t</head>\n\t<body>\n\t\t<%php\n\t\t\t\"Hello World\"" + 
+                "\n\t\t%>\n\t</body>\n</html>";
+                break;
+        }
+
+        return content;
     }
 
     private static String currentFolder(){
