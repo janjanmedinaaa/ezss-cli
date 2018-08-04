@@ -7,7 +7,7 @@ EzSS is a java-based CLI tool in creating and compressing CSS Files. EzSS allows
 You first need to install Java Runtime Environment and Java Virtual Machine on your device to run the JAR File.
 
 ## Installation
-1. Download the ZIP file or clone using `git clone https://github.com/medinajuanantonio95/ezss-cli.git`
+1. Download the ZIP file or clone using `git clone https://github.com/janjanmedinaaa/ezss-cli.git`
 2. Unzip the file and import `ezss.jar` to your Project Directory
 
 ## Usage
@@ -23,7 +23,7 @@ java -jar ezss.jar [command] [...files]
 	!!!DON'T FORGET TO UPDATE THESE INFORMATION!!!
 	Filename: index.html
 	Author: Janjan Medina
-	Author URI: https://github.com/medinajuanantonio95
+	Author URI: https://github.com/janjanmedinaaa
 	Project: JAVA\EzSS
 */
 
